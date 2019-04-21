@@ -2,6 +2,14 @@
 vendor
 
 *.class
-target/
 
 .idea
+
+logs
+target
+/.idea_modules
+/.classpath
+/.project
+/.settings
+/RUNNING_PID
+/docker/db/mysql_data/*
