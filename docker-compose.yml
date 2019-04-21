@@ -1,2 +1,30 @@
-version: "3"
+version: '3'
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: docker/app/Dockerfile
+    command: sbt run
+    environment:
+      DB_HOST_NAME: db
+    volumes:x
+    - "./:/cat"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    links:
+      - db
 
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: cat
+      MYSQL_USER: cat
+      MYSQL_PASSWORD: password
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./datastore:/etc/mysql/conf.d
+      - ./docker/db/mysql_data:/var/lib/mysql
