@@ -12,4 +12,4 @@ target
 /.project
 /.settings
 /RUNNING_PID
-/docker/db/mysql_data/*
+/docker/db/mysql_data/
