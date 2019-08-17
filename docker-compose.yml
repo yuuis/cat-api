@@ -7,15 +7,14 @@ services:
     command: sbt run
     environment:
       DB_HOST_NAME: db
-    volumes:x
-    - "./:/cat"
+    volumes:
+      - "./:/cat"
     ports:
       - "3000:3000"
     depends_on:
       - db
     links:
       - db
-
   db:
     image: mysql:5.7
     environment:
